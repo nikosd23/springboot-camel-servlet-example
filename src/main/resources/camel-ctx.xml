@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:camel="http://camel.apache.org/schema/spring" xmlns:context="http://www.springframework.org/schema/context"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+         http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+
+
+		<camelContext xmlns="http://camel.apache.org/schema/spring" useBreadcrumb="true" id="gimli-camel-ctx">
+
+			<route id="entry-point">
+				<from uri="servlet:///sync?matchOnUriPrefix=true&amp;servletName=CamelExampleServlet"/>
+				<to uri="log:com.mycompany.project?level=INFO"/>
+			</route>
+
+		</camelContext>
+
+</beans>
